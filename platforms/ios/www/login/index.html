@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Class Project 2017</title>  
+    <link rel="stylesheet" href="../css/loginstyle.css">  
+    <script type="text/javascript" src="../js/ajax.js"></script>
+</head>
+
+<body>
+   
+    <div class="container">  
+        <form id="contact" name="login_form" action="" onsubmit="return loginFormValidation();" method="post">
+            <center><h2>Login</h2></center>
+            <fieldset>
+                <input id= "username" placeholder="Fullname" type="text" tabindex="1" name="username" required autofocus><span id="user_error" style="color: red;"> <!--<?php echo $user_name_error ?></span> -->
+            </fieldset>
+            <fieldset>
+                <input id = "email" placeholder="Email" type="email" name="email" tabindex="2" required><span id="email_error" style="color: red;"><!--<?php echo $email_error ?>--></span>
+            </fieldset>
+            
+            <fieldset>
+                <button type="button" name="login" id="loginSubmit" data-submit="...Sending" onclick = "loginAjax()">Submit</button>
+            </fieldset>
+            <a href="../register/register.html">Register</a>
+        </form>
+    </div>
+
+<script type="text/javascript" src="../js/customvalidate.js"></script>
+</body>
+</html>

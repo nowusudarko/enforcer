@@ -1,0 +1,10 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Enforcer",
+  "short_name": "Enforcer",
+  "version": "io.cordova.hellocordova",
+  "description": "An Apache Cordova application that allows users to report crimes.",
+  "icons": [],
+  "start_url": "index.html"
+}

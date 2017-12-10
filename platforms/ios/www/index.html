@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src ="js/ajax.js"></script>
+</head>
+<body>
+    <!-- Load core settings file -->
+   <!-- <?php require_once('settings/core_ini.php');
+    verifyUserLogin();
+    ?>  -->
+
+    <h1>Home Page</h1>
+    Welcome <!--<?php echo $_SESSION['username']; ?> -->, click on any of the options. <br/>
+
+
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC-BIKWagY48wVg4gLjRGL2dloSD4rsDk">
+      </script>
+      <script src="js/location.js"></script>
+      <button onclick="getLocation()"> Current Location</button>
+
+    <br/>
+
+<button id = "cameraTakePicture" onclick ="cameraTakePicture()">TAKE PICTURE</button>
+<img id = "myImage"></img>
+
+
+<p id="me"></p>
+
+
+
+
+</body>
+</html>
