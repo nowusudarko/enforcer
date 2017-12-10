@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Enforcer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="js/toasty/build/toastr.css" />
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="js/toasty/build/toastr.min.js"></script>
+  <script src="jquery.js"></script>
+  <style> 
+  </style>
+</head>
+  
+  
+<body>
+
+    <div class="container-fluid">
+    <div class = "row">
+  <div class="col-md-12 reg-div" id="reg">
+    <div>
+      <div class="enforcer-border" style="text-align: center;">
+        <h1> Enforcer </h1>
+      </div>
+      <a class="btn btn-primary btn-sm reg-page" href="#" data-toggle="modal" data-target=".login-register-form">Click Here to Login or Register </a>
+    </div>
+  </div>
+
+      <!-- Login / Register Modal-->
+                        <div class="modal fade login-register-form" style="font-family:serif;" role="dialog">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a data-toggle="tab" href="#login-form"> Login </a></li>
+                                            <li><a data-toggle="tab" href="#registration-form"> Register </a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="tab-content">
+                                            <div id="login-form" class="tab-pane fade in active">
+                                                <form >
+                                                    <div class="form-group">
+                                                        <label for="email">Email:</label>
+                                                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone:</label>
+                                                        <input type="phone" class="form-control" id="pwd" placeholder="Enter phone number" name="pwd">
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <label><input type="checkbox" name="remember"> Remember me</label>
+                                                    </div>
+                                                    <button type="button" onclick="login();" class="btn btn-info">Login</button>
+                                                </form>
+                                            </div>
+                                            <div id="registration-form" class="tab-pane fade">
+                                                <form  name="regform" onsubmit="return validateForm();" method="post" >
+                                                    <div class="form-group">
+                                                        <label for="name">Your Name:</label>
+                                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="newemail">Email:</label>
+                                                        <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="newemail">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="age">Age:</label>
+                                                        <input type="number" class="form-control" id="age" placeholder="Age" name="age">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone:</label>
+                                                        <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="phone">
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="organization">Organization:</label>
+                                                        <input type="text" class="form-control" id="org" placeholder="Name of Organization" name="organization">
+                                                    </div>
+                                                    <button type="button" class="btn btn-info" id="reg" onclick="validateForm();">Register</button>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a type="submit" class="btn btn-primary btn-block" data-dismiss="modal" >Close</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+  <div class="col-md-2">
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+<script>
+ function validateForm() {
+
+    this.validateName();
+    this.validateEmail();
+    this.validateAge();
+    this.validateNumber();
+    this.validateOrg();
+    this.register();
+}
+    
+
+
+function validateName(){
+    var name = document.forms["regform"]["name"].value;
+    var patt = /^[A-Za-z\s]+$/;
+
+    if (name == "" ) {
+       toastr.info("Name must be filled out");
+    }
+  
+       else if (patt.test(name) == false){
+          toastr.error("Name cannot include numbers or symbols");
+       }
+
+       return false;
+     }
+
+ function validateEmail(){
+
+    var email = document.forms["regform"]["newemail"].value;
+    var emailpattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+
+       
+    if(email == ""){
+      toastr.info("Email cannot be empty");
+     }
+
+    else if (emailpattern.test(email) == false){
+      toastr.info("Email must be in the format name@domain.com");
+    }
+   }
+
+    function validateAge(){
+    var number = document.forms["regform"]["age"].value;
+    if (number==""){
+      toastr.info("Please specify age");
+    } 
+  }
+
+    function validateNumber(){
+    var number = document.forms["regform"]["phone"].value;
+    var phnopattern =  /[0-9]{10} $/i;
+
+
+    if (number == ""){
+      toastr.info("Phone number must not be empty");
+    }
+
+       else if (phnopattern.test(number) == true){
+    }
+
+     return false; 
+  }
+
+   function validateOrg(){
+    var name = document.forms["regform"]["organization"].value;
+    var patt = /^[A-Za-z\s]+$/;
+
+    if (name == "" ) {
+       toastr.info("Organization must be filled out");
+    }
+  
+       else if (patt.test(name) == false){
+          toastr.error("Organization cannot include numbers or symbols");
+       }
+
+       return false;
+     }
+        
+
+
+  
+  function register() {
+    var val1 = $('#name').val();
+    var val2 = $('#newemail').val();
+    var val3 = $('#age').val();
+    var val4 = $('#phone').val();
+    var val5 = $('#org').val();
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://nowusudarko.000webhostapp.com/registration.php',
+        data: { name: val1, newemail: val2, age: val3, phone: val4, org: val5 },
+        success: function(response) {
+            toastr.success(response);
+        }
+    });
+}
+
+
+function login() {
+  var val1 = $('#email').val();
+  var val2 = $('#pwd').val();
+
+ $.ajax({
+  type: 'POST',
+  url: 'https://nowusudarko.000webhostapp.com/login.php',
+  data: {email: val1, pwd: val2},
+  success: function(response) {
+    if (response == "success"){
+      window.location.assign("report.html");
+    }
+    else{
+      toastr.error(response);
+    }
+  }
+ });
+}
+
+</script>
+
+  </body>
+</html>
+
+

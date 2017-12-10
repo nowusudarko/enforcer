@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8"> 
+    <link rel="stylesheet" href="../css/loginstyle.css"> 
+    <script type="text/javascript" src="../js/ajax.js"></script>
+
+</head>
+<body>
+
+    <div class="container">  
+        <form id="contact" action="" method="post" name="registerForm">
+            <center><h2>Register</h2></center>
+
+            <fieldset>
+                <input name="username" placeholder="Fullname" type="text" tabindex="1"  autofocus id="username">
+                <span id="user_error" style="color: red;"> 
+            </fieldset>
+
+            <fieldset>
+                <input name="email" placeholder="Email" type="email" tabindex="2" required id="email"><span id="email_error" style="color: red;">
+            </fieldset>
+
+            <fieldset>
+                <input id = "phonenumber" name="phonenumber" placeholder="Phone Number" type="text" tabindex="3" required><span id="phone_error" style="color: red;">
+            </fieldset>
+
+            <fieldset>
+                <input id= "age" name="age" placeholder="Enter Age" type="text" tabindex="4" required><span id="age_error" style="color: red;"> <!--<?php echo $age_error ?></span>-->
+            </fieldset>
+
+            <fieldset>
+                <input id="organization" name="organization" placeholder="Enter Organization" type="text" tabindex="5" required><span id="org_error" style="color: red;"> <!--<?php echo $org_error ?></span>-->
+            </fieldset>
+
+            <fieldset>
+                <input id="gender" type="radio" name="gender" value="M"> Male &nbsp; &nbsp;
+                <input id="gender" type="radio" name="gender" value="F"> Female <br><span id="gender_error" style="color: red;"><!--<?php echo $gender_error ?></span>-->
+            </fieldset>
+
+
+            <fieldset>
+                <button type="button" name="register" id="registerSubmit" data-submit="...Sending" onclick = "registerAjax()">Register</button> 
+            </fieldset>
+            <a href="../login/index.html">Login</a>
+        </form>
+    </div>
+
+<!--<script type="text/javascript" src="../js/customvalidate.js"></script>-->
+</body>
+</html>

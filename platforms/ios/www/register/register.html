@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8"> 
+    <link rel="stylesheet" href="../css/loginstyle.css"> 
+</head>
+<body>
+
+    <div class="container">  
+        <form id="contact" action="" onsubmit="return registrationFormValidation();" method="post" name="registerForm">
+            <center><h2>Register</h2></center>
+
+            <fieldset>
+                <input name="username" placeholder="Fullname" type="text" tabindex="1"  autofocus>
+                <span id="user_error" style="color: red;"> <!--<?php echo $user_name_error ?></span>-->
+            </fieldset>
+
+            <fieldset>
+                <input name="email" placeholder="Email" type="email" tabindex="2" required><span id="email_error" style="color: red;"> <!--<?php echo $email_error ?></span>-->
+            </fieldset>
+
+            <fieldset>
+                <input name="phonenumber" placeholder="Phone Number" type="text" tabindex="3" required><span id="phone_error" style="color: red;"> <!--<?php echo $phone_error ?></span>-->
+            </fieldset>
+
+            <fieldset>
+                <input name="age" placeholder="Enter Age" type="text" tabindex="4" required><span id="age_error" style="color: red;"> <!--<?php echo $age_error ?></span>-->
+            </fieldset>
+
+            <fieldset>
+                <input name="organization" placeholder="Enter Organization" type="text" tabindex="5" required><span id="org_error" style="color: red;"> <!--<?php echo $org_error ?></span>-->
+            </fieldset>
+
+            <fieldset>
+                <input type="radio" name="gender" value="M"> Male &nbsp; &nbsp;
+                <input type="radio" name="gender" value="F"> Female <br><span id="gender_error" style="color: red;"><!--<?php echo $gender_error ?></span>-->
+            </fieldset>
+
+
+            <fieldset>
+                <button type="submit" name="register" id="registerSubmit" data-submit="...Sending">Submit</button>
+            </fieldset>
+            <a href="../login/index.html">Login</a>
+        </form>
+    </div>
+
+<script type="text/javascript" src="../js/customvalidate.js"></script>
+</body>
+</html>
